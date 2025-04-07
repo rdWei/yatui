@@ -1,4 +1,5 @@
 #include "terminal.h"
+#include <stdio.h>
 
 void clearTerminal(void) {
   printf("\033[H\033[J"); fflush(stdout);
@@ -43,4 +44,8 @@ int terminalResized() {
     }
     
     return 0;
+}
+
+void printAtXY(uint8_t x, uint8_t y, char* string) {
+  printf("\033[%d;%dH%s", y, x, string); fflush(stdout);
 }

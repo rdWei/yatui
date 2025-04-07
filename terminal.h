@@ -20,5 +20,6 @@ Point getTerminalSize();
 void setCursor(uint8_t state);
 void setEcho(uint8_t state);
 int terminalResized();
+void printAtXY(uint8_t x, uint8_t y, char* string);
 
 #endif
