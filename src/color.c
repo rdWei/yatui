@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include  "color.h"
+#include  "../include/color.h"
 
 void setColor(char* code) {
   printf("%s", code);

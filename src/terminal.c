@@ -1,4 +1,4 @@
-#include "terminal.h"
+#include "../include/terminal.h"
 #include <stdio.h>
 
 void clearTerminal(void) {

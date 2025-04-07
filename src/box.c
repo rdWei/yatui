@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-#include "box.h"
-#include "point.h"
-#include "terminal.h"
+#include "../include/box.h"
+#include "../include/point.h"
+#include "../include/terminal.h"
 
 Box newBox(Point startPoint, uint8_t width, uint8_t height) {
   Box b = {
