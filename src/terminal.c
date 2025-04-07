@@ -1,5 +1,7 @@
-#include "../include/terminal.h"
+#include <stdarg.h>
 #include <stdio.h>
+
+#include "../include/terminal.h"
 
 void clearTerminal(void) {
   printf("\033[H\033[J"); fflush(stdout);
@@ -50,3 +52,13 @@ void printAtXY(uint8_t x, uint8_t y, char* string) {
   printf("\033[%d;%dH%s", y, x, string); fflush(stdout);
 }
 
+void printfAtXY(uint8_t x, uint8_t y, char* fmt, ...) {
+  va_list args;
+  va_start(args, fmt);
+
+  printf("\033[%d;%dH", y, x); fflush(stdout);
+  
+  vprintf(fmt, args);
+
+  va_end(args);
+}

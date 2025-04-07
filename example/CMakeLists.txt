@@ -6,7 +6,7 @@ project(TestProject)
 
 # Aggiungi i file sorgente
 set(SOURCES
-    read_key.c
+    shroom.c
     ../src/terminal.c
     ../src/box.c
     ../src/point.c
@@ -16,4 +16,4 @@ set(SOURCES
 )
 
 # Crea l'eseguibile
-add_executable(read_key ${SOURCES})
+add_executable(example ${SOURCES})

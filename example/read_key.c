@@ -15,6 +15,8 @@ int main() {
   Box box = newBox(newPoint(10, 5), 20, 10);
   drawFancyBox(box);
 
+  printfAtXY(30, 30, "%s: %d", "Dio", 10);
+
   char key = ' ';
   while (key != 'q') {
     if (isKeyPressed(&key)) {
