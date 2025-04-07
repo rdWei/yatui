@@ -2,6 +2,6 @@
   <img src="images/logo.png" alt=""  width="400"/>
 </p>
 <h6><p align="center">
-     Yet Another TUI
+     yatui - Yet Another TUI
 </p></h6>
 
