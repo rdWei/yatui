@@ -23,5 +23,6 @@
 #define BG_WHITE    "\033[47m"
 
 void setColor(char* code);
+void setRandomColor();
 
 #endif

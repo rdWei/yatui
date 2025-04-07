@@ -31,7 +31,7 @@ void setEcho(uint8_t state) {
   tcsetattr(STDIN_FILENO, TCSANOW, &term);
 }
 
-int terminal_resized() {
+int terminalResized() {
     static struct winsize last_size = {0, 0, 0, 0};
     struct winsize current_size;
     

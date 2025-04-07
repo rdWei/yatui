@@ -19,6 +19,6 @@ void clearTerminal(void);
 Point getTerminalSize();
 void setCursor(uint8_t state);
 void setEcho(uint8_t state);
-int terminal_resized();
+int terminalResized();
 
 #endif
