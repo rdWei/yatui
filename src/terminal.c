@@ -49,3 +49,4 @@ int terminalResized() {
 void printAtXY(uint8_t x, uint8_t y, char* string) {
   printf("\033[%d;%dH%s", y, x, string); fflush(stdout);
 }
+
