@@ -6,10 +6,11 @@ project(TestProject)
 
 # Aggiungi i file sorgente
 set(SOURCES
-    keyboard.c
+    lineShroom.c
     ../src/terminal.c
     ../src/box.c
     ../src/point.c
+    ../src/line.c
     ../src/tui.c
     ../src/color.c
     ../src/key.c

@@ -15,8 +15,12 @@
 #define VISIBLE 1
 #define INVISIBLE 0
 
+#define BLOCK 3
+#define NON_BLOCK 2
+
 #define CANONICAL 1
 #define NON_CANONICAL 0
+
 
 void clearTerminal(void);
 Point getTerminalSize();

@@ -1,8 +1,8 @@
-#include <fcntl.h>
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <termios.h>
+#include <fcntl.h>
 #include <unistd.h>
 
 #include "../include/terminal.h"
@@ -12,16 +12,28 @@ void clearTerminal(void) {
 }
 
 void setMode(uint8_t mode) {
-  struct termios newt; 
-  tcgetattr(STDIN_FILENO, &newt);
-  if (mode) { // Canonical
-    newt.c_cflag |= ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-    return;
+  switch (mode) {
+    case NON_BLOCK:
+      fcntl(STDIN_FILENO, F_SETFL, fcntl(STDIN_FILENO, F_GETFL) | O_NONBLOCK);
+      return;
+    case BLOCK:
+      fcntl(STDIN_FILENO, F_SETFL, fcntl(STDIN_FILENO, F_GETFL) & ~O_NONBLOCK);
+      return;
+    case CANONICAL:
+      struct termios newt;
+      tcgetattr(STDIN_FILENO, &newt);
+      newt.c_lflag |= ICANON;
+      tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+      return;
+    case NON_CANONICAL:
+      struct termios newterm;
+      tcgetattr(STDIN_FILENO, &newterm);
+      newterm.c_lflag &= ~ICANON;
+      tcsetattr(STDIN_FILENO, TCSANOW, &newterm);
+      return;
+    default:
+      return;
   }
-
-  newt.c_cflag &= ~ICANON;
-  tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 }
 
 Point getTerminalSize() {
