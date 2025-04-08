@@ -15,10 +15,14 @@
 #define VISIBLE 1
 #define INVISIBLE 0
 
+#define CANONICAL 1
+#define NON_CANONICAL 0
+
 void clearTerminal(void);
 Point getTerminalSize();
 void setCursor(uint8_t state);
 void setEcho(uint8_t state);
+void setMode(uint8_t mode);
 int terminalResized();
 void printAtXY(uint8_t x, uint8_t y, char* string);
 void printfAtXY(uint8_t x, uint8_t y, char* fmt, ...);

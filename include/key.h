@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <stdbool.h>
 
-bool isKeyPressed(char *key);
+// bool isKeyPressed(char *key);
+char isKeyPressed();
 
 #endif 

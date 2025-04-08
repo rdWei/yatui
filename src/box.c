@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdarg.h>
 
 #include "../include/box.h"
 #include "../include/point.h"
@@ -173,5 +174,17 @@ void drawFancyBorder() {
 }
 
 void printAtXYRelativeTo(Box mainBox, uint8_t x, uint8_t y, char* string) {
-  printAtXY(x + mainBox.startPoint.x, y + mainBox.startPoint.y, string);
+  printf("\033[%d;%dH%s", mainBox.startPoint.y + y, mainBox.startPoint.x + x, string); fflush(stdout);
+}
+
+
+void printfAtXYRelativeTo(Box mainBox, uint8_t x, uint8_t y, char* fmt, ...) {
+  va_list args;
+  va_start(args, fmt);
+
+  printf("\033[%d;%dH", mainBox.startPoint.y + y, mainBox.startPoint.x + x); fflush(stdout);
+  
+  vprintf(fmt, args);
+
+  va_end(args);
 }

@@ -1,10 +1,28 @@
+#include <fcntl.h>
 #include <stdarg.h>
+#include <stdint.h>
 #include <stdio.h>
+#include <termios.h>
+#include <unistd.h>
 
 #include "../include/terminal.h"
 
 void clearTerminal(void) {
   printf("\033[H\033[J"); fflush(stdout);
+}
+
+void setMode(uint8_t mode) {
+  struct termios oldt, newt; 
+  tcgetattr(STDIN_FILENO, &oldt);
+  newt = oldt;
+  if (mode) { // Canonical
+    newt.c_cflag |= ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+    return;
+  }
+
+  newt.c_cflag &= ~ICANON;
+  tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 }
 
 Point getTerminalSize() {

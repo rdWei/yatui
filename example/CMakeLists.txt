@@ -6,7 +6,7 @@ project(TestProject)
 
 # Aggiungi i file sorgente
 set(SOURCES
-    shroom.c
+    keyboard.c
     ../src/terminal.c
     ../src/box.c
     ../src/point.c

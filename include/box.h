@@ -18,5 +18,6 @@ void drawFancyBoxRelativeTo(Box mainBox, Box box);
 void drawBorder(char character);
 void drawFancyBorder();
 void printAtXYRelativeTo(Box mainBox, uint8_t x, uint8_t y, char* string);
+void printfAtXYRelativeTo(Box mainBox, uint8_t x, uint8_t y, char* fmt, ...);
 #endif
 
