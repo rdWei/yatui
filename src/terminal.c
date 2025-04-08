@@ -12,9 +12,8 @@ void clearTerminal(void) {
 }
 
 void setMode(uint8_t mode) {
-  struct termios oldt, newt; 
-  tcgetattr(STDIN_FILENO, &oldt);
-  newt = oldt;
+  struct termios newt; 
+  tcgetattr(STDIN_FILENO, &newt);
   if (mode) { // Canonical
     newt.c_cflag |= ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &newt);
