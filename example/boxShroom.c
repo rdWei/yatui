@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
@@ -5,7 +6,7 @@
 #include "../include/terminal.h"
 #include "../include/tui.h"
 #include "../include/box.h"
-#include "../include/key.h"
+#include "../include/keyboard.h"
 #include "../include/color.h"
 
 int randN() {
@@ -15,6 +16,8 @@ int randN() {
 int main() {
   setEcho(INVISIBLE);
   setCursor(INVISIBLE);
+  setMode(NON_CANONICAL);
+  setMode(NON_BLOCK);
 
   clearTerminal();
 
@@ -22,10 +25,9 @@ int main() {
 
   char key = ' ';
   
-  while (key != 'q') {
-    if (isKeyPressed(&key)) {
-      // Handle Key
-    }
+  while ( (key = getchar()) != KEY_q ) {
+
+    if (key == EOF)  { ; } // Do nothing
 
     Box boxArr[] = {newBox(newPoint(randN(), randN()), randN(), randN()), newBox(newPoint(randN(), randN()), randN(), randN()), newBox(newPoint(randN(), randN()), randN(), randN())};
 

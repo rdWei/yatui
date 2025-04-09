@@ -6,14 +6,13 @@ project(TestProject)
 
 # Aggiungi i file sorgente
 set(SOURCES
-    lineShroom.c
+    boxShroom.c
     ../src/terminal.c
     ../src/box.c
     ../src/point.c
     ../src/line.c
     ../src/tui.c
     ../src/color.c
-    ../src/key.c
 )
 
 # Crea l'eseguibile
