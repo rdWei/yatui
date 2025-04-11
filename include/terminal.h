@@ -4,6 +4,7 @@
 #define TERMINAL_H
 
 #include <stdint.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <sys/ioctl.h>
 #include <asm-generic/ioctls.h>
@@ -30,5 +31,6 @@ void setMode(uint8_t mode);
 int terminalResized();
 void printAtXY(uint8_t x, uint8_t y, char* string);
 void printfAtXY(uint8_t x, uint8_t y, char* fmt, ...);
+void mvCursorAtXY(uint8_t x, uint8_t y);
 
 #endif

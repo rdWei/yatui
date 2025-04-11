@@ -1,5 +1,4 @@
 #include <stdarg.h>
-#include <stdint.h>
 #include <stdio.h>
 #include <termios.h>
 #include <fcntl.h>
@@ -90,4 +89,8 @@ void printfAtXY(uint8_t x, uint8_t y, char* fmt, ...) {
   vprintf(fmt, args);
 
   va_end(args);
+}
+
+void mvCursorAtXY(uint8_t x, uint8_t y) {
+  printf("\033[%d;%dH", y, x); fflush(stdout);
 }
